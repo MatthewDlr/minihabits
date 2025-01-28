@@ -27,6 +27,7 @@ async function bootstrap() {
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     credentials: true,
   });
+  console.log('CORS_ORIGIN: ', process.env.CORS_ORIGIN);
 
   await app.listen(process.env.PORT ?? 3000);
 }
