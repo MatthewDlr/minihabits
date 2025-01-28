@@ -20,6 +20,13 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: { email: string; password: string }) {
+    const allowedEmails = process.env.ALLOWED_EMAILS?.split(',') || [];
+    if (!allowedEmails.includes(createUserDto.email)) {
+      throw new UnauthorizedException(
+        'You are not allowed to register, ask the owner to get invited 🥲',
+      );
+    }
+
     const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
 
     const newUser = new this.userModel({
