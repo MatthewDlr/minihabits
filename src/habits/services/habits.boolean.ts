@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { HabitDocument, HabitType } from '../habits.schema';
-import * as moment from 'moment';
+import moment from 'moment';
 import { StatsService } from '../../stats/stats.service';
+import { HabitDocument, HabitType } from '../habits.schema';
 
 @Injectable()
 export class HabitsBooleanService {

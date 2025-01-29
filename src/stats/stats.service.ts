@@ -1,9 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import moment from 'moment';
 import { Model } from 'mongoose';
-import * as moment from 'moment';
 import { Stats } from './stats.schema';
-import { Logger } from '@nestjs/common';
 
 @Injectable()
 export class StatsService {
