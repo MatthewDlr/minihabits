@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import * as moment from 'moment';
+import moment from 'moment';
 import { Model } from 'mongoose';
 import { User } from 'src/users/users.schema';
 import { Stats } from './stats.schema';

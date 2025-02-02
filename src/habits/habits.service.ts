@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import * as moment from 'moment';
+import moment from 'moment';
 import { Model } from 'mongoose';
 import { StatsService } from '../stats/stats.service';
 import { CreateHabitDto } from './dto/create.dto';
