@@ -58,17 +58,33 @@ export class HabitsCounterService {
     targetCounter: number,
   ): number {
     const today = moment().startOf('day');
-    let currentDate = today;
     let streak = 0;
+    let missedDays = 0;
+    let daysInWeek = 0;
 
-    while (true) {
-      const dateStr = currentDate.format('YYYY-MM-DD');
+    const sortedDates = Array.from(completedDates.keys()).sort((a, b) =>
+      moment(b).diff(moment(a)),
+    );
+
+    for (const dateStr of sortedDates) {
+      const currentDate = moment(dateStr);
+      if (currentDate.isAfter(today)) continue;
+
       const value = completedDates.get(dateStr);
 
-      if (!value || value < targetCounter) break;
+      if (!value || value < targetCounter) {
+        missedDays++;
+        if (missedDays > 1) break;
+      } else {
+        streak++;
+      }
 
-      streak++;
-      currentDate = currentDate.subtract(1, 'day');
+      daysInWeek++;
+
+      if (daysInWeek === 7) {
+        daysInWeek = 0;
+        missedDays = 0;
+      }
     }
 
     return streak;
