@@ -4,7 +4,7 @@ import { Model } from 'mongoose';
 import { Habit, HabitType } from './habits.schema';
 import { CreateHabitDto } from './dto/create.dto';
 import { UpdateHabitDto } from './dto/update.dto';
-import * as moment from 'moment';
+import moment from 'moment';
 import { HabitsCounterService } from './services/habits.counter';
 import { HabitsBooleanService } from './services/habits.boolean';
 import { HabitsTaskService } from './services/habits.task';
