@@ -1,14 +1,14 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import * as moment from 'moment';
 import { Model } from 'mongoose';
-import { Habit, HabitType } from './habits.schema';
+import { StatsService } from '../stats/stats.service';
 import { CreateHabitDto } from './dto/create.dto';
 import { UpdateHabitDto } from './dto/update.dto';
-import moment from 'moment';
-import { HabitsCounterService } from './services/habits.counter';
+import { Habit, HabitType } from './habits.schema';
 import { HabitsBooleanService } from './services/habits.boolean';
+import { HabitsCounterService } from './services/habits.counter';
 import { HabitsTaskService } from './services/habits.task';
-import { StatsService } from '../stats/stats.service';
 
 @Injectable()
 export class HabitsService {

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import moment from 'moment';
+import * as moment from 'moment';
 import { StatsService } from '../../stats/stats.service';
 import { HabitDocument, HabitType } from '../habits.schema';
 
